@@ -135,3 +135,6 @@ Python爬虫/src/crawler_base/driver/geckodriver.exe
 
 # Edge chromium browser
 Python爬虫/src/crawler_base/driver/msedgedriver.exe
+
+# pycharm file
+.idea
