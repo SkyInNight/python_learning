@@ -100,3 +100,5 @@ if __name__ == '__main__':
     for city in city_list:
         text = get_city_page_num(city)
         print("{0}的景点页数有：{1}".format(city, text))
+    browser_driver.close()
+    browser_driver.quit()
