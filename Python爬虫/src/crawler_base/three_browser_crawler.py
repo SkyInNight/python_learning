@@ -2,7 +2,7 @@
 # 导入selenium测试模块
 # 需要自行下载安装pip install selenium
 from selenium import webdriver
-from crawler_base import regular_expression
+from crawler_base import two_regular_expression as regular_expression
 from selenium.common import exceptions
 import os
 
@@ -154,7 +154,6 @@ if __name__ == '__main__':
             regex_str_=regex_str,
             data_=data)
         print(text)
-        browser_crawler.quit()
         # 2. 获取马蜂窝一个城市的景点个数
         city_list = ['长沙', '衡阳', '湘潭']
         for city in city_list:
