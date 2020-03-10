@@ -57,6 +57,11 @@ user_agent_mobile_list = [
 
 
 def set_user_agent(os_type):
+    """
+
+    :param os_type:
+    :return:
+    """
     if os_type == "PC":
         return user_agent_pc_list[random.randint(
             0, len(user_agent_pc_list))]
@@ -90,11 +95,20 @@ def download_test02(user_url):
 
 
 def download_add_pc_user_agent(user_url):
+    """ 设置网页请求头代理
+
+    :param user_url: 网页url
+    :return: 返回网页内容
+    """
+    # 设置User-Agent请求头
     headers = {"User-Agent": set_user_agent("PC")}
     request = req.Request(user_url, headers=headers)
+    # 保持连接一直活着
+    request.add_header("Connection", "keep-alive")
     try:
-        response = req.urlopen(request).read()
-        return response
+        response = req.urlopen(request)
+        print(response.code)
+        return response.read(100)
     except error.URLError as e:
         print("网络连接出错了，错误信息：{0}".format(e.reason))
 
